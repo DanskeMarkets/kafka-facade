@@ -534,5 +534,6 @@ From here you can call applyOnTopic(topic, props)
 Several people inside Danske Bank has contributed to this project:
 
 * Aleksandar Ivanov Dalemski ([musashibg](https://github.com/musashibg))
+* Stefan Kent Ettrup ([StefanE](https://github.com/stefane))
 * Honi Jain ([jainhj](https://github.com/jainhj))
 * Nicholas Schultz-Møller ([nicholassm](https://github.com/nicholassm))

@@ -87,6 +87,12 @@ publishing {
 						organization = 'Danske Bank A/S'
 					}
 					developer {
+						id           = 'sett'
+						name         = 'Stefan Kent Ettrup'
+						email        = 'sett@danskebank.dk'
+						organization = 'Danske Bank A/S'
+					}
+					developer {
 						id           = 'hoja'
 						name         = 'Honi Jain'
 						email        = 'hoja@danskebank.dk'
