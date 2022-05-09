@@ -1,0 +1,18 @@
+// Needed for the developer environment inside Danske Bank.
+if (System.properties['inside'] == 'Danske') {
+	pluginManagement {
+		repositories {
+			maven {
+				name = 'joined-gradle'
+				url artifactory_joinedUrl
+				credentials {
+					username = artifactory_user
+					password = artifactory_password
+				}
+			}
+			gradlePluginPortal()
+		}
+	}
+}
+
+rootProject.name = "kafka-facade"

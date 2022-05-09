@@ -1,0 +1,19 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse:
+.settings/
+.classpath
+.project
+.factorypath
+
+# Generated files:
+.apt_generated/
+generated/
+
+# Gradle:
+.gradle/
+build/
+bin/
+out/

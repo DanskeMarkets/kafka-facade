@@ -1,0 +1,120 @@
+plugins {
+	id 'java-library'
+	id 'io.freefair.lombok' version '5.2.1'
+	id 'maven-publish'
+	id 'signing'
+}
+generateLombokConfig.enabled = false
+
+targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_11
+
+archivesBaseName    = 'kafka-facade'
+group               = 'dk.danskebank.markets'
+version             = '0.0.1'
+
+repositories {
+	// Needed for the developer environment inside Danske Bank.
+	if (System.properties['inside'] == 'Danske') {
+		maven {
+			name = 'joined-gradle'
+			url artifactory_joinedUrl
+			credentials {
+				username = artifactory_user
+				password = artifactory_password
+			}
+		}
+	}
+
+	mavenCentral()
+}
+
+java {
+	withJavadocJar()
+	withSourcesJar()
+}
+
+artifacts {
+	archives javadocJar, sourcesJar
+}
+
+test {
+	useJUnitPlatform()
+}
+
+dependencies {
+	api                group: 'dk.danskebank.markets',    name: 'lifecycle',     version: '1.0.0'
+	api                group: 'org.apache.kafka',         name: 'kafka-clients', version: '2.6.1'
+
+	implementation     group: 'com.google.code.gson',     name: 'gson',          version: '2.9.0'
+	implementation     group: 'com.google.guava',         name: 'guava',         version: '31.1-jre'
+	implementation     group: 'org.apache.logging.log4j', name: 'log4j-api',     version: '2.17.2'
+
+	testImplementation group: 'com.github.charithe',      name: 'kafka-junit',   version: '4.1.11'
+	testImplementation group: 'org.apache.logging.log4j', name: 'log4j-core',    version: '2.17.2'
+	testImplementation group: 'org.mockito',              name: 'mockito-core',  version: '4.2.0'
+	testImplementation group: 'org.junit.jupiter',        name: 'junit-jupiter', version: '5.8.2'
+}
+
+publishing {
+	publications {
+		kafkaFacade(MavenPublication) {
+			from components.java
+
+			pom {
+				name        = 'Kafka Facade'
+				description = 'Simplify working with Kafka.'
+				url         = 'https://github.com/danskemarkets/kafka-facade'
+
+				scm {
+					connection          = 'scm:git:git://github.com/danskemarkets/kafka-facade'
+					developerConnection = 'scm:git:git://github.com/danskemarkets/kafka-facade'
+					url                 = 'https://github.com/danskemarkets/kafka-facade'
+				}
+
+				licenses {
+					license {
+						name = 'The MIT License'
+						url  = 'https://opensource.org/licenses/MIT'
+					}
+				}
+
+				developers {
+					developer {
+						id           = 'alda'
+						name         = 'Aleksandar Ivanov Dalemski'
+						email        = 'alda@danskebank.dk'
+						organization = 'Danske Bank A/S'
+					}
+					developer {
+						id           = 'hoja'
+						name         = 'Honi Jain'
+						email        = 'hoja@danskebank.dk'
+						organization = 'Danske Bank A/S'
+					}
+					developer {
+						id           = 'nisch'
+						name         = 'Nicholas Schultz-Møller'
+						email        = 'nisch@danskebank.dk'
+						organization = 'Danske Bank A/S'
+					}
+				}
+			}
+		}
+	}
+
+	repositories {
+		maven {
+			name = 'Sonatype'
+			url  = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+			credentials {
+				username = ossrhUsername
+				password = ossrhPassword
+			}
+		}
+	}
+}
+
+signing {
+	sign publishing.publications.kafkaFacade
+}

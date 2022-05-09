@@ -1,0 +1,34 @@
+{
+  "stringValues": [
+    "Test1",
+    "Test 5457",
+    "",
+    null
+  ],
+  "intValues": [
+    0,
+    150000000,
+    -1,
+    null
+  ],
+  "doubleValues": [
+    0.0,
+    1e-100,
+    -56.3556446,
+    null
+  ],
+  "nestedValues": [
+    {
+      "field1": "Epic",
+      "field2": false
+    },
+    {
+      "field1": "Sample"
+    },
+    {
+      "field2": true
+    },
+    {},
+    null
+  ]
+}

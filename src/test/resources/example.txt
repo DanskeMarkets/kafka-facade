@@ -1,0 +1,6 @@
+# List rates from 2020-04-13:
+EUR/USD, {rate=1.1232}
+EUR/DKK, {rate=7.4732}
+
+# Delete USD/ARS as we don't use it anymore.
+EUR/ARS,
