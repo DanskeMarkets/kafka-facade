@@ -99,6 +99,12 @@ publishing {
 						organization = 'Danske Bank A/S'
 					}
 					developer {
+						id           = 'lasf'
+						name         = 'Lasse Holm Pagh Frandsen'
+						email        = 'lasf@danskebank.dk'
+						organization = 'Danske Bank A/S'
+					}
+					developer {
 						id           = 'nisch'
 						name         = 'Nicholas Schultz-Møller'
 						email        = 'nisch@danskebank.dk'
