@@ -30,7 +30,8 @@ public interface KafkaSubscriber<K, V> {
 
 	/**
 	 * Invoked when the last record is replayed and all future invocations of
-	 * {@link #onNewRecord(K, V)} and {@link #onDeletedRecord(K)} are streamed - only invoked
+	 * {@link #onNewRecord(Object, Object) onNewRecord(K, V)} and
+	 * {@link #onDeletedRecord(Object) onDeletedRecord(K)} are streamed - only invoked
 	 * for subscribers of type {@link KafkaReplayConsumer}.
 	 */
 	default void onReplayDone() { /* Do nothing. */ }

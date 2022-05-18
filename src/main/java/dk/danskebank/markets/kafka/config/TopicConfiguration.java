@@ -65,8 +65,10 @@ public class TopicConfiguration {
 
     /**
      * Executes the configuration that has been built - always create topic first with @replicationFactor and @numberPartitions
-     * Once done the topic configs supported by this class will either be deleted or set
-     * @return the result of the config change
+     * Once done the topic configs supported by this class will either be deleted or set.
+     * @param topic to apply configs to.
+     * @param properties for setting up the Kafka connection.
+     * @return the result of the config change.
      */
 
     public AlterConfigsResult applyOnTopic(String topic, Properties properties) {

@@ -47,6 +47,8 @@ public class ConsumerStartPoint {
 	/**
 	 * Creates a consumer starting point indicating that the consumer should start from the earliest offset with a
 	 * timestamp newer than the specified reference timestamp.
+	 * @param timestamp that the consumer start point should be at.
+	 * @return The consumer start point.
 	 */
 	public static ConsumerStartPoint fromReferenceTimestamp(@NonNull Instant timestamp) {
 		return new ConsumerStartPoint(Type.REFERENCE_TIMESTAMP, timestamp);

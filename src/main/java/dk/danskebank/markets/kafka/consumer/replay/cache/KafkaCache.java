@@ -198,7 +198,7 @@ public class KafkaCache<K, V> implements Lifecycle {
 	 *
 	 * Thread safe.
 	 *
-	 * @param key
+	 * @param key The key to get.
 	 * @return value to which the specified key is mapped
 	 */
 	public V get(K key){

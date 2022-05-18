@@ -12,24 +12,16 @@ import org.apache.kafka.common.record.TimestampType;
 @Data @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class RecordMetadata {
 
-	/**
-	 * The topic on which the record was produced.
-	 */
+	/** The topic on which the record was produced. */
 	private final String topic;
 
-	/**
-	 * The topic partition id on which the record was produced.
-	 */
+	/** The topic partition id on which the record was produced. */
 	private final int partition;
 
-	/**
-	 * The unique offset of the record.
-	 */
+	/** The unique offset of the record. */
 	private final long offset;
 
-	/**
-	 * The record's timestamp. Check {@link RecordMetadata#timestampType} to determine the type of the timestamp.
-	 */
+	/** The record's timestamp. Check {@link RecordMetadata#timestampType} to determine the type of the timestamp. */
 	private final long timestamp;
 
 	/**

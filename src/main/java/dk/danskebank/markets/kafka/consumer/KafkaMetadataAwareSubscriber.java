@@ -31,7 +31,8 @@ public interface KafkaMetadataAwareSubscriber<K, V> {
 
 	/**
 	 * Invoked when the last record is replayed and all future invocations of
-	 * {@link #onNewRecord(K, V, RecordMetadata)} and {@link #onDeletedRecord(K, RecordMetadata)} are streamed - only
+	 * {@link #onNewRecord(Object, Object, RecordMetadata) onNewRecord(K, V, RecordMetaData)} and
+	 * {@link #onDeletedRecord(Object, RecordMetadata) onDeletedRecord(K, RecordMetadata)} are streamed - only
 	 * invoked for subscribers of type {@link KafkaReplayConsumer}.
 	 */
 	default void onReplayDone() { /* Do nothing. */ }
