@@ -11,7 +11,7 @@ sourceCompatibility = JavaVersion.VERSION_11
 
 archivesBaseName    = 'kafka-facade'
 group               = 'dk.danskebank.markets'
-version             = '0.0.1'
+version             = '1.0.0'
 
 repositories {
 	// Needed for the developer environment inside Danske Bank.
